@@ -1,0 +1,55 @@
+.chat-side
+  .chat-side__user
+    .chat-side__user-content
+      .chat-side__user-name test
+      %a.chat-side__user--new-group{href: '/groups/new'}
+        %i.fa.fa-pencil-square-o
+      %a.chat-side__user--edit-user{href: '/users/edit'}
+        %i.fa.fa-cog
+
+  .chat-side__groups
+    .chat-side__groups-list
+      .chat-side__group
+        .chat-side__group-name test1
+        .chat-side__group-message まだメッセージはありません
+      .chat-side__group
+        .chat-side__group-name test2
+        .chat-side__group-message まだメッセージはありません
+      .chat-side__group
+        .chat-side__group-name test3
+        .chat-side__group-message まだメッセージはありません
+
+.chat-main
+  .chat-main__header
+    .chat-main__header--group.clearfix
+      .chat-main__header--group-name sampleグループ
+      %a.chat-main__header--group-edit-btn{href: '/groups/**/edit'} Edit
+    .chat-main__header-members MEMBER
+
+  .chat-main__body
+    .chat-main__body--messages-list
+      .chat-main__message.clearfix
+        .chat-main__message-name  test1
+        .chat-main__message-time  2018/11/15 00:00:00
+        .chat-main__message-body  test1aaaaaaaaaaaaa
+      .chat-main__message.clearfix
+        .chat-main__message-name  test2
+        .chat-main__message-time  2018/11/15 00:00:00
+        .chat-main__message-body  test2bbbbbbbbbbbbb
+      .chat-main__message.clearfix
+        .chat-main__message-name  test3
+        .chat-main__message-time  2018/11/15 00:00:00
+        .chat-main__message-body  test3ccccccccccccc
+
+  .chat-main__footer
+    %form#new_message.chat-main__footer-form{"accept-charset" => "UTF-8", action: "/groups/**/messages", enctype: 'multipart/form-data', method: "post"}
+      %input{name: "utf8", type: "hidden", value: ""}
+      %input{name: "authenticity_token", type: "hidden", value: ""}
+      .chat-main__footer-body
+        %input#message_body.message{name: "message[body]", placeholder: "type a message", type: "text"}
+        %label.chat-file{for: "message_image"}
+          %input#message_image.image{name: "message[image]", type: "file"}
+          %i.fa.fa-image
+      %input.submit{"data-disable-with" => "Send", name: "commit", type: "submit", value: "Send"}
+
+
